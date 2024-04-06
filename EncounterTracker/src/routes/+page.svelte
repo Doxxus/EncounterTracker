@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import DragDropList from "./DragDropList.svelte";
+    let data = ["Adams", "Boston", "Chicago", "Denver"];
+</script>
+<main>
+    <div class="control_areaa">
+        <div class="initiative_list">
+            <DragDropList bind:data={data}></DragDropList>
+        </div>
+    </div>
+</main>
+<style>
+    .initiative_list {
+        display: block;
+    }
+</style>
