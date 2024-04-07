@@ -1,10 +1,11 @@
 
-<script lang="js">
+<script lang="ts">
 // @ts-nocheck
 
     import {flip} from "svelte/animate";
+    import { type Combatant } from "./Combatant";
     
-    export let data = [];
+    export let data: Array<Combatant> = [];
     export let removesItems = false;
 
     let ghost;
@@ -95,6 +96,14 @@
         border: 1px solid rgb(190, 190, 190);
         border-radius: 2px;
         user-select: none;
+    }
+
+    .item_active {
+        background-image: -webkit-linear-gradient(top, #8f34d9, #2980b9);
+        background-image: -moz-linear-gradient(top, #8f34d9, #2980b9);
+        background-image: -ms-linear-gradient(top, #8f34d9, #2980b9);
+        background-image: -o-linear-gradient(top, #8f34d9, #2980b9);
+        background-image: linear-gradient(to bottom, #8f34d9, #2980b9);
     }
 
     .item:last-child {
@@ -189,6 +198,7 @@
                 role="listitem"
                 id={(grabbed && (datum.id ? datum.id : JSON.stringify(datum)) == grabbed.dataset.id) ? "grabbed" : ""}
                 class="item"
+                class:item_active={datum.is_active}
                 data-index={i}
                 data-id={(datum.id ? datum.id : JSON.stringify(datum))}
                 data-grabY="0"
@@ -213,13 +223,7 @@
                 </div>
 
                 <div class="content">
-                    {#if datum.html}
-                        {@html datum.html}
-                    {:else if datum.text}
-                        <p>{datum.text}</p>
-                    {:else}
-                        <p>{datum}</p>
-                    {/if}
+                    <p>{datum.name}</p>
                 </div>
 
                 <div class="buttons delete">

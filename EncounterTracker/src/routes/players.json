@@ -1,0 +1,46 @@
+{
+    "players": [
+        {
+            "name": "Fist MacMahon",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Junia and Dimas",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Aurelia",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Aurin Graedig",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Xadan Rieekan",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Eugene Rika",
+            "hp": 10,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        }
+    ]
+}
