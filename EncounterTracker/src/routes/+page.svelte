@@ -1,11 +1,11 @@
 <script lang="ts">
 	import DragDropList from "./DragDropList.svelte";
     
-    import players from "./players.json";
-    import encounters from "./encounters.json";
+    import players from "../data/players.json";
+    import encounters from "../data/encounters.json";
     
-    import { type Combatant } from "./Combatant";
-    import { type Encounter } from "./Encounter";
+    import { type Combatant } from "../types/Combatant";
+    import { type Encounter } from "../types/Encounter";
 
     let comb_players: Array<Combatant> = players.players;
     let combatants: Array<Combatant> = comb_players;
