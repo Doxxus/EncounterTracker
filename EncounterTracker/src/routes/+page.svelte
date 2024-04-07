@@ -19,10 +19,13 @@
         
         combatants.forEach((combatant: Combatant) => {
             combatant.is_active = false;
+            combatant.current_hp = combatant.max_hp;
         })
 
         combatants[0].is_active = true;
         active_combatant_id = 0;
+
+        UpdateCombatants();
     }
 
     function NextCombatant() {
@@ -53,6 +56,15 @@
 
         combatants = comb_players.concat(npc_combs);     
     }
+
+    // setInterval(() => {
+    //     npc_combatants = npc_combatants;
+    // }, 100);
+
+    function UpdateCombatants() {
+        npc_combatants = npc_combatants;
+    }
+
 </script>
 <main>
     <div class="encounter_buttons">
@@ -68,7 +80,7 @@
             <DragDropList bind:data={combatants}></DragDropList>
         </div>
         <div class="statblock_area">
-            <NpcCombatantTracker bind:combatants={npc_combatants}></NpcCombatantTracker>
+            <NpcCombatantTracker bind:combatants={npc_combatants} update_combatants={UpdateCombatants}></NpcCombatantTracker>
         </div>
     </div>
 </main>
