@@ -5,98 +5,112 @@
             "npc_combatants": [
                 {
                     "name": "Leschenial Archer 1",
-                    "hp": 20,
+                    "max_hp": 20,
+                    "current_hp": 20,
                     "ac": 12,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Archer 2",
-                    "hp": 20,
+                    "max_hp": 20,
+                    "current_hp": 20,
                     "ac": 12,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Archer 3",
-                    "hp": 20,
+                    "max_hp": 20,
+                    "current_hp": 20,
                     "ac": 12,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Archer 4",
-                    "hp": 20,
+                    "max_hp": 20,
+                    "current_hp": 20,
                     "ac": 12,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Rogue 1",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 13,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Rogue 2",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 13,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Rogue 3",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 13,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Swordsman 1",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Swordsman 2",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Swordsman 3",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Swordsman 4",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Kodai",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Orlon 1",
-                    "hp": 56,
+                    "max_hp": 56,
+                    "current_hp": 56,
                     "ac": 16,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Orlon 2",
-                    "hp": 48,
+                    "max_hp": 48,
+                    "current_hp": 48,
                     "ac": 16,
                     "status": "N/A",
                     "is_active": false
@@ -108,28 +122,32 @@
             "npc_combatants": [
                 {
                     "name": "Leschenial Archer",
-                    "hp": 20,
+                    "max_hp": 20,
+                    "current_hp": 20,
                     "ac": 12,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Rogue",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 13,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Swordsman",
-                    "hp": 25,
+                    "max_hp": 25,
+                    "current_hp": 25,
                     "ac": 14,
                     "status": "N/A",
                     "is_active": false
                 },
                 {
                     "name": "Leschenial Orlon",
-                    "hp": 48,
+                    "max_hp": 50,
+                    "current_hp": 50,
                     "ac": 16,
                     "status": "N/A",
                     "is_active": false

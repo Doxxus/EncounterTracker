@@ -3,10 +3,10 @@
 // @ts-nocheck
 
     import {flip} from "svelte/animate";
-    import { type Combatant } from "./Combatant";
+    import { type Combatant } from "../types/Combatant";
     
     export let data: Array<Combatant> = [];
-    export let removesItems = false;
+    export let removesItems = true;
 
     let ghost;
     let grabbed;
@@ -96,6 +96,7 @@
         border: 1px solid rgb(190, 190, 190);
         border-radius: 2px;
         user-select: none;
+        font-family: Arial;
     }
 
     .item_active {

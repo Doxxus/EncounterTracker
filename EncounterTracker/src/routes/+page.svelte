@@ -1,5 +1,6 @@
 <script lang="ts">
 	import DragDropList from "./DragDropList.svelte";
+    import NpcCombatantTracker from "./NpcCombatantTracker.svelte";
     
     import players from "../data/players.json";
     import encounters from "../data/encounters.json";
@@ -66,7 +67,9 @@
         <div class="initiative_list">
             <DragDropList bind:data={combatants}></DragDropList>
         </div>
-        <div class="statblock_area"></div>
+        <div class="statblock_area">
+            <NpcCombatantTracker bind:combatants={npc_combatants}></NpcCombatantTracker>
+        </div>
     </div>
 </main>
 <style>
@@ -105,6 +108,8 @@
 
     .control_area {
         margin: 20px;
+        display: flex;
+        flex-direction: rows;
     }
 
     .initiative_list {
