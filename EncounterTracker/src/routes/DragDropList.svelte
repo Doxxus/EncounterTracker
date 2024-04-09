@@ -104,7 +104,7 @@
             <div 
                 role="listitem"
                 id={(grabbed && (datum.id ? datum.id : JSON.stringify(datum)) == grabbed.dataset.id) ? "grabbed" : ""}
-                class="item"
+                class="item rounded-lg"
                 class:item_active={datum.is_active}
                 data-index={i}
                 data-id={(datum.id ? datum.id : JSON.stringify(datum))}
@@ -167,7 +167,6 @@
         min-height: 3em;
         margin-bottom: 0.5em;
         border: 1px solid rgb(190, 190, 190);
-        border-radius: 2px;
         user-select: none;
         font-family: Arial;
     }

@@ -22,44 +22,39 @@
 
 </script>
 <main>
-    <div class="combatant_area">
+    <div class="header">
+        <h1 style="color: white">NPC Combatants</h1>
+    </div>
+    <div class="combatant_area border-solid border-2 border-slate-950 rounded-xl">       
         {#each combatants as combatant}
-            <div class="combatant_card">
+            <div class="combatant_card rounded-xl">
                 <p class="combatant_name">{combatant.name}</p>
                 <div class="combatant_info">
                     <p>AC: {combatant.ac}</p>
-                    <!-- <div>
-                        <Button color="purple">Status {combatant.status}</Button>
-                        <Dropdown class="w-48 p-3 space-y-1">
-                            <DropdownItem class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <Radio name="group2" bind:group={group2} value={1}>Default radio</Radio>
-                            </DropdownItem>
-                            <DropdownItem class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <Radio name="group2" bind:group={group2} value={2}>Checked state</Radio>
-                            </DropdownItem>
-                            <DropdownItem class="rounded p-2 hover:bg-gray-100 dark:hover:bg-gray-600">
-                                <Radio name="group2" bind:group={group2} value={3}>Default radio</Radio>
-                            </DropdownItem>
-                        </Dropdown>
-                    </div> -->
                 </div>
                 <div class="hp_area">
-                    <button class="hp_button minus_button" on:click={() => {MinusHP(combatant)}}>-</button>
+                    <button class="hp_button minus_button rounded-l-lg" on:click={() => {MinusHP(combatant)}}>-</button>
                     <div class="hp_bar_base">
                         <div class="hp_bar_current" style="width: {100 * combatant.current_hp / combatant.max_hp}%">
                             <p class="current_hp">{combatant.current_hp}</p>
                         </div>                        
                     </div>
-                    <button class="hp_button plus_button" on:click={() => {PlusHP(combatant)}}>+</button>
+                    <button class="hp_button plus_button rounded-r-lg" on:click={() => {PlusHP(combatant)}}>+</button>
                 </div>
             </div>
         {/each}
     </div>
 </main>
 <style>
+    .header {
+        text-align: center;
+        font-size: large;
+    }
+
     .combatant_area {
-        margin: 20px;
-        width: 100%;
+        padding: 20px;
+        margin-left: 20px;
+        width: auto;
         height: 100%;
         grid-column: 1/3;
         grid-row: 2/2;
@@ -82,6 +77,7 @@
     
     .combatant_card:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        @apply bg-gray-400;
     }
 
     .combatant_name {

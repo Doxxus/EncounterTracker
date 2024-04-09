@@ -77,8 +77,13 @@
     </div>
     <div class="control_area">
         <div class="initiative_list">
-            <DragDropList bind:data={combatants}></DragDropList>
-        </div>
+            <div class="header">
+                <h1 style="color: white">Initiative List</h1>
+            </div>
+            <div class="inner_list border-solid border-2 border-slate-950 rounded-xl">
+                <DragDropList bind:data={combatants}></DragDropList>
+            </div>
+        </div>       
         <div class="statblock_area">
             <NpcCombatantTracker bind:combatants={npc_combatants} update_combatants={UpdateCombatants}></NpcCombatantTracker>
         </div>
@@ -124,8 +129,13 @@
         flex-direction: rows;
     }
 
+    .inner_list {
+        padding: 20px;
+    }
+
     .initiative_list {
         width: 20%;
+        text-align: center;;
     }
 
     .statblock_area {
