@@ -12,7 +12,8 @@
     let combatants: Array<Combatant> = comb_players;
     let npc_combatants: Array<Combatant> = [];
     let active_encounter: Encounter;
-    let active_combatant_id: number;
+    let active_combatant_id: number = 0;
+    let started_encounter: boolean = false;
 
     function StartEncounter() {
         if (combatants === null) return;
@@ -26,6 +27,8 @@
         active_combatant_id = 0;
 
         UpdateCombatants();
+
+        started_encounter = true;
     }
 
     function NextCombatant() {
@@ -74,6 +77,16 @@
         {#each encounters.encounters as encounter}
             <button class="encounter_button" on:click="{() => {LoadCombatants(encounter.name)}}">{encounter.name}</button>
         {/each}
+
+        {#if started_encounter}
+            <div class="current_combatant_div border-solid border-2 border-slate-950 rounded-xl">
+                <h2>Current Combatant: </h2>
+                <p>{combatants[active_combatant_id].name}</p>
+                <!-- {#if combatants.length === 0}
+                    <p>{combatants[active_combatant_id].name}</p>
+                {/if} -->
+            </div>
+        {/if}
     </div>
     <div class="control_area">
         <div class="initiative_list">
@@ -90,6 +103,16 @@
     </div>
 </main>
 <style>
+    .current_combatant_div {
+        margin: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
     .encounter_buttons {
         display: flex;
         flex-direction: row;
@@ -108,7 +131,6 @@
         border-radius: 7px;
         font-family: Arial;
         color: #ffffff;
-        font-size: 20px;
         padding: 10px 20px 10px 20px;
         text-decoration: none;
     }
@@ -137,21 +159,38 @@
         .initiative_list {
             width: 20%;
             text-align: center;
+            font-size: large;
         }
 
         .statblock_area {
             width: 80%;
         }
+
+        .current_combatant_div {
+            font-size: 15px;
+        }
+
+        .encounter_button {
+            font-size: 20px;
+        }
     }
 
     @media (max-width: 1000px) {
         .initiative_list {
-            width: 40%;
+            width: 45%;
             text-align: center;
         }
 
         .statblock_area {
-            width: 60%;
+            width: 55%;
+        }
+
+        .current_combatant_div {
+            font-size: 12px;
+        }
+
+        .encounter_button {
+            font-size: 12px;
         }
     }
     
