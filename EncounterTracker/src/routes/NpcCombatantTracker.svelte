@@ -44,13 +44,13 @@
                     </div> -->
                 </div>
                 <div class="hp_area">
-                    <button class="hp_button" on:click={() => {MinusHP(combatant)}}>-</button>
+                    <button class="hp_button minus_button" on:click={() => {MinusHP(combatant)}}>-</button>
                     <div class="hp_bar_base">
                         <div class="hp_bar_current" style="width: {100 * combatant.current_hp / combatant.max_hp}%">
                             <p class="current_hp">{combatant.current_hp}</p>
                         </div>                        
                     </div>
-                    <button class="hp_button" on:click={() => {PlusHP(combatant)}}>+</button>
+                    <button class="hp_button plus_button" on:click={() => {PlusHP(combatant)}}>+</button>
                 </div>
             </div>
         {/each}
@@ -65,7 +65,7 @@
         grid-row: 2/2;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
         gap: 1.5em;
     }
 
@@ -103,25 +103,36 @@
     }
 
     .hp_button {
-        @apply bg-gray-900;  
+        background: linear-gradient(90deg, rgba(9, 0, 43, 1) 0%, rgba(9, 0, 43, 1) 100%);
         width: 35px;
         height: 35px;
         color: white;
+        transition: 0.3s;
+    }
+
+    .minus_button:hover {
+        background: linear-gradient(90deg, rgba(9, 0, 43, 1) 0%, rgba(0,212,255,1) 100%);  
+    }
+
+    .plus_button:hover {
+        background: linear-gradient(90deg, rgba(73,255,14,1)  0%, rgba(9, 0, 43, 1) 100%);  
     }
 
     .hp_bar_base {
         height: 35px;
         width: 100%;
-        background-color: darkred;
+        background: linear-gradient(90deg, rgba(51,0,0,1) 0%, rgba(159,0,0,1) 100%);
     }
 
     .hp_bar_current {
         height: 35px;
-        background-color: forestgreen;
+        background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(73,255,14,1) 100%);
         width: 50%;
         z-index: 5;
         text-align: right;
+        padding: 7px;
         vertical-align: center;
+        overflow: hidden;
     }
 
     .current_hp {
