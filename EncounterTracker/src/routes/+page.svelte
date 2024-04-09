@@ -133,12 +133,26 @@
         padding: 20px;
     }
 
-    .initiative_list {
-        width: 20%;
-        text-align: center;;
+    @media (min-width: 1000px) {
+        .initiative_list {
+            width: 20%;
+            text-align: center;
+        }
+
+        .statblock_area {
+            width: 80%;
+        }
     }
 
-    .statblock_area {
-        width: 80%;
+    @media (max-width: 1000px) {
+        .initiative_list {
+            width: 40%;
+            text-align: center;
+        }
+
+        .statblock_area {
+            width: 60%;
+        }
     }
+    
 </style>
