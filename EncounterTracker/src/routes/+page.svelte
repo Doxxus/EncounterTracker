@@ -18,6 +18,11 @@
     let started_encounter: boolean = false;
     let show_modal: boolean = false;
 
+    // Used to trigger svelte reactivity to an update to the data array.
+    function UpdateCombatants() {
+        npc_combatants = npc_combatants;
+    }
+
     function StartEncounter() {
         if (active_encounter == null) return;
         if (combatants === null) return;
@@ -85,12 +90,7 @@
     function AddCombatant(combatant: Combatant) {
         let temp_combatant = structuredClone(combatant);
         temp_combatant.is_active = false;   
-
-        npc_combatants.forEach((element) => {
-            if (element.name === temp_combatant.name) {
-                
-            }
-        });
+        temp_combatant.name = NameCombatant(temp_combatant, 0, temp_combatant.name);
 
         combatants.push(temp_combatant);
         npc_combatants.push(temp_combatant);
@@ -98,8 +98,25 @@
         UpdateCombatants();
     }
 
-    function UpdateCombatants() {
-        npc_combatants = npc_combatants;
+    function NameCombatant(combatant: Combatant, number: number, orig_name: String): String {
+        let temp_name: String = combatant.name;
+        let duplicate_found = false;
+
+        for (let i = 0; i < npc_combatants.length; i++) {
+            if (npc_combatants[i].name != combatant.name) continue;
+            duplicate_found = true;
+            break;
+        }
+
+        if (duplicate_found) {
+            combatant.name = orig_name + " " + (number + 1).toString();
+            temp_name = NameCombatant(combatant, number + 1, orig_name);
+        }
+        else if (number != 0) {
+            temp_name = orig_name + " " + number.toString();
+        }
+
+        return temp_name;
     }
 
 </script>

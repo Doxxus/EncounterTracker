@@ -20,6 +20,11 @@
         update_combatants();
     }
 
+    function KillCombatant(combatant: Combatant) {
+        combatants.splice(combatants.indexOf(combatant), 1);
+        update_combatants();
+    }
+
 </script>
 <main>
     <div class="header">
@@ -28,9 +33,14 @@
     <div class="combatant_area border-solid border-2 border-slate-950 rounded-xl">       
         {#each combatants as combatant}
             <div class="combatant_card rounded-xl">
-                <p class="combatant_name">{combatant.name}</p>
+                <div class="name_container rounded-t-xl">
+                    <p class="combatant_name">{combatant.name}</p>
+                </div>
                 <div class="combatant_info">
-                    <p>AC: {combatant.ac}</p>
+                    <div class="ac_comp rounded-lg">
+                        <p>AC: {combatant.ac}</p>
+                    </div>
+                    <button class="kill_button rounded-lg" on:click={() => {KillCombatant(combatant)}}>Kill</button>
                 </div>
                 <div class="hp_area">
                     <button class="hp_button minus_button rounded-l-lg" on:click={() => {MinusHP(combatant)}}>-</button>
@@ -80,16 +90,45 @@
         @apply bg-gray-400;
     }
 
-    .combatant_name {
+    .name_container {
         width: 100%;
+        text-align: center;
+        background-color: rgba(9, 0, 43, 1);
+        color: white;
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .combatant_info {
         display: flex;
         flex-direction: row;
         gap: 0.2em;
-        margin: 5px;
-        height: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        height: 30px;
+        justify-content: space-between;
+    }
+    
+    .ac_comp {
+        background-color: rgba(9, 0, 43, 1);
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+    }
+
+    .kill_button {
+        background: linear-gradient(rgba(159,0,0,1) 0%, rgba(51,0,0,1) 100%);
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+    }
+
+    .kill_button:hover {
+        background: linear-gradient(rgba(51,0,0,1) 0%, rgba(159,0,0,1) 100%);
     }
 
     .hp_area {
