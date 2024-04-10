@@ -1,0 +1,28 @@
+{
+    "npcs": [
+        {
+            "name": "Leschenial Archer",
+            "max_hp": 20,
+            "current_hp": 20,
+            "ac": 12,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Leschenial Rogue",
+            "max_hp": 25,
+            "current_hp": 25,
+            "ac": 13,
+            "status": "N/A",
+            "is_active": false
+        },
+        {
+            "name": "Leschenial Swordsman",
+            "max_hp": 25,
+            "current_hp": 25,
+            "ac": 14,
+            "status": "N/A",
+            "is_active": false
+        }
+    ]
+}
