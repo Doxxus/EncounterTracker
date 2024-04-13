@@ -21,6 +21,27 @@
     // Used to trigger svelte reactivity to an update to the data array.
     function UpdateCombatants() {
         npc_combatants = npc_combatants;
+
+        combatants.forEach((combatant) => {
+            if (!npc_combatants.includes(combatant) && !comb_players.includes(combatant)) {
+                let comb_index = combatants.indexOf(combatant);
+                if (comb_index <= active_combatant_id) active_combatant_id--;
+                combatants.splice(comb_index, 1);
+            }
+        });
+
+        combatants = combatants;
+    }
+
+    function UpdateTrackerOnInitiativeChange(index: number) {
+        npc_combatants.forEach((combatant) => {
+            if (!combatants.includes(combatant)) {
+                npc_combatants.splice(npc_combatants.indexOf(combatant), 1);
+                if (index <= active_combatant_id) active_combatant_id--;
+            }
+        });
+
+        npc_combatants = npc_combatants;
     }
 
     function StartEncounter() {
@@ -149,7 +170,7 @@
                 <h1 style="color: white">Initiative List</h1>
             </div>
             <div class="inner_list border-solid border-2 border-slate-950 rounded-xl">
-                <DragDropList bind:data={combatants}></DragDropList>
+                <DragDropList bind:data={combatants} update_npc_combatants={UpdateTrackerOnInitiativeChange}></DragDropList>
             </div>
         </div>       
         <div class="statblock_area">

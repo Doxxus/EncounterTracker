@@ -7,6 +7,7 @@
     
     export let data: Array<Combatant> = [];
     export let removesItems = true;
+    export let update_npc_combatants = (index: number) => {};
 
     let ghost;
     let grabbed;
@@ -71,6 +72,7 @@
 
     function removeDatum(index) {
         data = [...data.slice(0, index), ...data.slice(index + 1)];
+        update_npc_combatants(index);
     }
 </script>
 
