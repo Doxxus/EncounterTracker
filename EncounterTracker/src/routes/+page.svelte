@@ -87,20 +87,27 @@
         })
     }
 
-    function LoadCombatants(encounter_name: String) {     
-        combatants = players.players;
-        let npc_combs: Array<Combatant> = [];
-            
-        for (let i = 0; i < encounters.encounters.length; i++) {
-            if (encounters.encounters[i].name != encounter_name) continue;
-
-            npc_combs = encounters.encounters[i].npc_combatants;
-            active_encounter = encounters.encounters[i];
-            npc_combatants = npc_combs;
-            break;
+    function LoadCombatants(encounter: Encounter) {       
+        if (started_encounter && active_encounter != null) {
+            active_encounter.initiative_list = combatants;
+            active_encounter.current_combatant = active_combatant_id;
         }
 
-        combatants = comb_players.concat(npc_combs);     
+        combatants = players.players;
+        let npc_combs: Array<Combatant> = [];
+
+        npc_combs = encounter.npc_combatants;
+        active_encounter = encounter;
+
+        if (active_encounter.initiative_list.length != 0) {
+            npc_combatants = npc_combs;
+            combatants = active_encounter.initiative_list;
+            active_combatant_id = active_encounter.current_combatant;
+        }
+        else {
+            npc_combatants = npc_combs;
+            combatants = comb_players.concat(npc_combs);   
+        }        
     }
 
     function LoadNPCModal() {
@@ -160,7 +167,7 @@
         </div>
         <div class="encounter_selects">
             {#each encounters.encounters as encounter}
-                <button class="encounter_button" on:click="{() => {LoadCombatants(encounter.name)}}">{encounter.name}</button>
+                <button class="encounter_button" on:click="{() => {LoadCombatants(encounter)}}">{encounter.name}</button>
             {/each}
         </div>
     </div> 
